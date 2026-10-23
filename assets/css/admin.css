@@ -1,0 +1,179 @@
+/* ==========================================================================
+   ROBOFORGE · admin.css
+   后台管理：纯素 · 严谨 · 克制（无插画、无渐变堆砌、细边框、数据优先）
+   配色：底 #F5F7FA / 面 #FFFFFF / 线 #E3E8EF / 字 #1F2D3D / 强调 #2E7CF6 / 警示 #E23B3B
+   ========================================================================== */
+:root{
+  --a-bg:#F5F7FA; --a-card:#FFFFFF; --a-line:#E3E8EF; --a-line-2:#EDF1F6;
+  --a-ink:#1F2D3D; --a-ink-2:#5A6B80; --a-ink-3:#8A99AC;
+  --a-blue:#2E7CF6; --a-blue-d:#1B5FCC; --a-red:#E23B3B; --a-green:#2FC08A; --a-orange:#F5A623;
+}
+body.admin{
+  background:var(--a-bg); color:var(--a-ink); font-size:13px;
+  font-family:'PingFang SC','Microsoft YaHei',Arial,sans-serif;
+}
+.admin .admin-app{display:flex;min-height:100vh;max-width:100%;padding:0;box-shadow:none;background:transparent}
+.admin .admin-app::before{display:none}
+
+/* 顶部条 */
+.admin .a-top{
+  height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;background:#fff;
+  border-bottom:1px solid var(--a-line);position:sticky;top:0;z-index:80;
+}
+.admin .a-top .lg{height:26px}
+.admin .a-top .tt{font-size:15px;font-weight:700;color:var(--a-ink)}
+.admin .a-top .sp{flex:1}
+.admin .a-top .usr{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--a-ink-2)}
+.admin .a-top .usr img{width:26px;height:26px;border-radius:50%;border:1px solid var(--a-line)}
+.admin .a-top .env{padding:2px 8px;border-radius:4px;background:#EEF4FF;color:var(--a-blue);font-size:11px;border:1px solid #D6E4FF}
+
+/* 侧边菜单 */
+.admin .a-side{
+  width:196px;flex:none;background:#fff;border-right:1px solid var(--a-line);padding:10px 0;
+  position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto;
+}
+.admin .a-side .gp{padding:10px 14px 6px;font-size:11px;color:var(--a-ink-3);letter-spacing:.5px}
+.admin .a-side a{
+  display:flex;align-items:center;gap:9px;padding:8px 14px;font-size:13px;color:var(--a-ink-2);
+  border-left:3px solid transparent;
+}
+.admin .a-side a img{width:15px;height:15px;opacity:.55}
+.admin .a-side a:hover{background:var(--a-bg);color:var(--a-ink)}
+.admin .a-side a.on{background:#EEF4FF;color:var(--a-blue);border-left-color:var(--a-blue);font-weight:600}
+.admin .a-side a.on img{opacity:1}
+.admin .a-side a .cnt{margin-left:auto;font-size:11px;background:var(--a-red);color:#fff;padding:0 6px;border-radius:9px;min-width:18px;text-align:center}
+.admin .a-side a .cnt.gray{background:var(--a-ink-3)}
+
+/* 主区 */
+.admin .a-main{flex:1;min-width:0;padding:16px;background:var(--a-bg)}
+.admin .a-crumb{font-size:12px;color:var(--a-ink-3);margin-bottom:12px}
+.admin .a-crumb b{color:var(--a-ink);font-weight:600}
+.admin .a-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
+.admin .a-hd h1{font-size:18px;font-weight:700;color:var(--a-ink)}
+.admin .a-hd .ops{display:flex;gap:8px;flex-wrap:wrap}
+
+/* 卡片 / 指标 */
+.admin .a-box{background:#fff;border:1px solid var(--a-line);border-radius:6px;margin-bottom:14px}
+.admin .a-box .bh{padding:11px 14px;border-bottom:1px solid var(--a-line-2);font-size:14px;font-weight:600;color:var(--a-ink);display:flex;align-items:center;justify-content:space-between}
+.admin .a-box .bc{padding:14px}
+.admin .a-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+.admin .a-kpi{background:#fff;border:1px solid var(--a-line);border-radius:6px;padding:14px}
+.admin .a-kpi .lb{font-size:12px;color:var(--a-ink-3)}
+.admin .a-kpi .vl{font-size:22px;font-weight:700;color:var(--a-ink);margin-top:6px;font-variant-numeric:tabular-nums}
+.admin .a-kpi .dl{font-size:11px;margin-top:4px;color:var(--a-ink-3)}
+.admin .a-kpi .dl b{color:var(--a-green);font-weight:600}
+.admin .a-kpi .dl b.down{color:var(--a-red)}
+.admin .a-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* 按钮（纯素） */
+.admin .a-btn{
+  height:32px;padding:0 14px;border-radius:4px;font-size:13px;cursor:pointer;
+  border:1px solid var(--a-line);background:#fff;color:var(--a-ink-2);display:inline-flex;align-items:center;gap:6px;
+}
+.admin .a-btn:hover{border-color:var(--a-blue);color:var(--a-blue)}
+.admin .a-btn.pri{background:var(--a-blue);border-color:var(--a-blue);color:#fff}
+.admin .a-btn.pri:hover{background:var(--a-blue-d);color:#fff}
+.admin .a-btn.dgr{background:#fff;border-color:var(--a-red);color:var(--a-red)}
+.admin .a-btn.sm{height:26px;padding:0 10px;font-size:12px}
+.admin .a-btn.dis{opacity:.5;pointer-events:none}
+
+/* 表格（严谨） */
+.admin .a-tb{width:100%;border-collapse:collapse;font-size:12px}
+.admin .a-tb th{
+  padding:9px 10px;text-align:left;background:#FAFBFC;color:var(--a-ink-2);font-weight:600;
+  border-bottom:1px solid var(--a-line);white-space:nowrap;
+}
+.admin .a-tb td{padding:9px 10px;border-bottom:1px solid var(--a-line-2);color:var(--a-ink);vertical-align:middle}
+.admin .a-tb tr:hover td{background:#FAFBFC}
+.admin .a-tb .num{font-variant-numeric:tabular-nums;text-align:right}
+.admin .a-tb .cell{display:flex;align-items:center;gap:8px}
+.admin .a-tb .cell img{width:28px;height:28px;border-radius:4px;border:1px solid var(--a-line);object-fit:cover}
+.admin .a-tb .ops a{color:var(--a-blue);margin-right:10px;cursor:pointer}
+.admin .a-tb .ops a.del{color:var(--a-red)}
+.admin .a-tb-wrap{overflow-x:auto}
+
+/* 状态标签 */
+.admin .a-tag{display:inline-block;padding:1px 7px;border-radius:3px;font-size:11px;border:1px solid;line-height:18px}
+.admin .a-tag.g{color:var(--a-green);border-color:#BFE9D6;background:#F0FBF6}
+.admin .a-tag.b{color:var(--a-blue);border-color:#C7DCFF;background:#F2F7FF}
+.admin .a-tag.r{color:var(--a-red);border-color:#F8CFCF;background:#FEF4F4}
+.admin .a-tag.o{color:var(--a-orange);border-color:#FAE3BC;background:#FFF9EF}
+.admin .a-tag.n{color:var(--a-ink-3);border-color:var(--a-line);background:#FAFBFC}
+
+/* 表单（严谨） */
+.admin .a-form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 16px}
+.admin .a-fi label{display:block;font-size:12px;color:var(--a-ink-2);margin-bottom:5px}
+.admin .a-fi input,.admin .a-fi select,.admin .a-fi textarea{
+  width:100%;height:32px;padding:0 10px;border:1px solid var(--a-line);border-radius:4px;background:#fff;color:var(--a-ink);font-size:13px;
+}
+.admin .a-fi textarea{height:76px;padding:8px 10px;resize:vertical;line-height:1.5}
+.admin .a-fi input:focus,.admin .a-fi select:focus,.admin .a-fi textarea:focus{border-color:var(--a-blue)}
+.admin .a-fi .hint{font-size:11px;color:var(--a-ink-3);margin-top:4px}
+.admin .a-fi.full{grid-column:1/-1}
+
+/* 筛选条 */
+.admin .a-filter{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:12px 14px;border-bottom:1px solid var(--a-line-2);background:#FCFDFF}
+.admin .a-filter input,.admin .a-filter select{height:30px;border:1px solid var(--a-line);border-radius:4px;padding:0 8px;font-size:12px;background:#fff;color:var(--a-ink)}
+.admin .a-filter .lb{font-size:12px;color:var(--a-ink-2)}
+
+/* 分页 */
+.admin .a-pg{display:flex;align-items:center;justify-content:flex-end;gap:6px;padding:12px 14px;font-size:12px;color:var(--a-ink-3)}
+.admin .a-pg a{min-width:28px;height:28px;padding:0 8px;display:flex;align-items:center;justify-content:center;border:1px solid var(--a-line);border-radius:4px;background:#fff;color:var(--a-ink-2)}
+.admin .a-pg a.on{background:var(--a-blue);border-color:var(--a-blue);color:#fff}
+
+/* 审核流（严谨版） */
+.admin .a-flow{display:flex;align-items:center;gap:0;padding:14px;overflow-x:auto}
+.admin .a-flow .nd{display:flex;align-items:center;gap:8px;flex:none}
+.admin .a-flow .nd .cr{width:26px;height:26px;border-radius:50%;border:1px solid var(--a-line);background:#fff;color:var(--a-ink-3);display:flex;align-items:center;justify-content:center;font-size:12px}
+.admin .a-flow .nd.done .cr{background:var(--a-green);border-color:var(--a-green);color:#fff}
+.admin .a-flow .nd.now .cr{background:var(--a-blue);border-color:var(--a-blue);color:#fff}
+.admin .a-flow .nd.rej .cr{background:var(--a-red);border-color:var(--a-red);color:#fff}
+.admin .a-flow .nd .tx{font-size:12px;color:var(--a-ink-2)}
+.admin .a-flow .nd .tx small{display:block;color:var(--a-ink-3);font-size:11px}
+.admin .a-flow .ln{width:38px;height:1px;background:var(--a-line);flex:none}
+
+/* 日志 / 时间线 */
+.admin .a-log{padding:0 14px}
+.admin .a-log .li{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--a-line-2);font-size:12px}
+.admin .a-log .li .tm{color:var(--a-ink-3);width:120px;flex:none;font-variant-numeric:tabular-nums}
+.admin .a-log .li .who{color:var(--a-ink);width:96px;flex:none}
+.admin .a-log .li .do{color:var(--a-ink-2);flex:1}
+
+/* 权限矩阵 */
+.admin .a-matrix{width:100%;border-collapse:collapse;font-size:12px}
+.admin .a-matrix th,.admin .a-matrix td{border:1px solid var(--a-line-2);padding:8px 10px;text-align:center}
+.admin .a-matrix th{background:#FAFBFC;color:var(--a-ink-2);font-weight:600}
+.admin .a-matrix td.k{text-align:left;color:var(--a-ink);background:#FCFDFF}
+.admin .chk{width:15px;height:15px;border:1px solid var(--a-line);border-radius:3px;display:inline-block;position:relative;background:#fff}
+.admin .chk.on{border-color:var(--a-blue);background:var(--a-blue)}
+.admin .chk.on::after{content:'';position:absolute;left:4px;top:1px;width:5px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(40deg)}
+
+/* 简易图表（纯 CSS 柱 / 折线占位） */
+.admin .a-chart{height:180px;display:flex;align-items:flex-end;gap:10px;padding:10px 14px;border-bottom:1px solid var(--a-line-2)}
+.admin .a-chart .cl{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px}
+.admin .a-chart .cl i{display:block;width:100%;max-width:34px;background:#CFE0FF;border-radius:3px 3px 0 0}
+.admin .a-chart .cl.hl i{background:var(--a-blue)}
+.admin .a-chart .cl span{font-size:10px;color:var(--a-ink-3)}
+
+/* 空态 */
+.admin .a-empty{padding:48px 14px;text-align:center;color:var(--a-ink-3);font-size:13px}
+
+/* 响应式：后台在手机端折叠为顶部横向菜单 */
+@media(max-width:860px){
+  .admin .admin-app{flex-direction:column}
+  .admin .a-side{
+    width:100%;height:auto;position:sticky;top:52px;display:flex;overflow-x:auto;padding:6px 8px;
+    border-right:0;border-bottom:1px solid var(--a-line);gap:6px;
+  }
+  .admin .a-side .gp{display:none}
+  .admin .a-side a{flex:none;padding:6px 10px;border-radius:4px;border-left:0;background:var(--a-bg);font-size:12px}
+  .admin .a-side a.on{background:#EEF4FF}
+  .admin .a-main{padding:12px}
+  .admin .a-kpis{grid-template-columns:repeat(2,1fr);gap:10px}
+  .admin .a-grid2{grid-template-columns:1fr}
+  .admin .a-form{grid-template-columns:1fr}
+  .admin .a-hd h1{font-size:16px}
+}
+@media(min-width:1200px){
+  .admin .a-kpis{grid-template-columns:repeat(6,1fr)}
+}

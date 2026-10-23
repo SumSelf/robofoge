@@ -1,0 +1,260 @@
+/* ==========================================================================
+   ROBOFORGE · nav.css  (统一导航层 · 单一实现)
+   · 顶部导航 .navpc —— 全尺寸唯一顶部条，实色不透明，永不与页面透叠
+   · 底部 Tab .tabbar —— 仅窄屏（<900px）显示
+   · AI 悬浮球 .ai-fab —— 右侧垂直居中常驻
+   注意：旧的 .topbar 已全站移除，不再存在两套顶部条
+   ========================================================================== */
+
+/* ============================ 顶部导航（唯一） ============================ */
+.navpc{
+  position:fixed; top:0; left:0; right:0; z-index:200; height:var(--npch);
+  /* 实色：不使用任何 rgba 渐变 / backdrop-filter，杜绝透叠 */
+  background:#0A1526;
+  border-bottom:2px solid #2E7CF6;
+  box-shadow:0 4px 16px rgba(0,0,0,.6);
+}
+.navpc .np-wrap{
+  max-width:1440px; height:var(--npch); margin:0 auto; padding:0 14px;
+  display:flex; align-items:center; gap:10px;
+}
+
+/* --- 左侧：返回 + Logo（图标统一做小） --- */
+.navpc .np-back{
+  width:28px; height:28px; border-radius:8px; flex:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(46,124,246,.16); border:1px solid rgba(46,124,246,.34);
+  transition:background .18s;
+}
+.navpc .np-back:hover{background:rgba(46,124,246,.36)}
+.navpc .np-back::before{
+  content:''; width:7px; height:7px; margin-left:2px;
+  border-left:2px solid #7CC4FF; border-bottom:2px solid #7CC4FF;
+  transform:rotate(45deg);
+}
+.navpc .np-logo{flex:none; display:flex; align-items:center}
+.navpc .np-logo img{height:22px; width:auto; display:block}
+
+/* --- 中部：主频道（可收缩 + 窄屏横向滚动） --- */
+.navpc .np-main{
+  display:flex; align-items:center; gap:2px; flex:1 1 auto;
+  min-width:0; overflow-x:auto; scrollbar-width:none;
+}
+.navpc .np-main::-webkit-scrollbar{display:none}
+.navpc .np-main a{
+  position:relative; display:flex; align-items:center; gap:5px; flex:none;
+  padding:6px 11px; border-radius:8px; font-size:13px; font-weight:600;
+  color:#93A6C0; white-space:nowrap; transition:.16s;
+}
+.navpc .np-main a img{width:15px; height:15px; opacity:.7; flex:none}
+.navpc .np-main a:hover{background:rgba(46,124,246,.16); color:#fff}
+.navpc .np-main a:hover img{opacity:1}
+.navpc .np-main a.on{
+  background:rgba(46,124,246,.26); color:#fff;
+}
+.navpc .np-main a.on img{opacity:1; filter:drop-shadow(0 0 5px rgba(46,124,246,.9))}
+.navpc .np-main a.on::after{
+  content:''; position:absolute; left:9px; right:9px; bottom:1px; height:2px;
+  background:#E23B3B; border-radius:2px;
+}
+
+/* --- 右侧：搜索 / 语言 / 消息 / 我的 / 折叠开关（永不收缩，不挤出屏幕） --- */
+.navpc .np-right{display:flex; align-items:center; gap:7px; flex:none; margin-left:auto}
+.navpc .np-search{
+  display:flex; align-items:center; gap:6px; height:30px; padding:0 11px;
+  border-radius:15px; background:rgba(46,124,246,.10);
+  border:1px solid rgba(46,124,246,.3); color:#8896A8; font-size:12px;
+  cursor:pointer; width:170px; flex:none; overflow:hidden;
+}
+.navpc .np-search img{width:14px; height:14px; opacity:.7; flex:none}
+.navpc .np-search span{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.navpc .np-search:hover{background:rgba(46,124,246,.2); color:#C7D4E4}
+.navpc .np-lang,.navpc .np-ico{
+  height:30px; border-radius:8px; flex:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(46,124,246,.14); border:1px solid rgba(46,124,246,.34);
+}
+.navpc .np-lang{width:38px; font-size:12px; font-weight:700; color:#7CC4FF}
+.navpc .np-ico{width:30px; position:relative}
+.navpc .np-ico img{width:15px; height:15px}
+.navpc .np-ico .dot{
+  position:absolute; top:4px; right:4px; width:6px; height:6px; border-radius:50%;
+  background:#E23B3B; border:1px solid #0A1526;
+}
+.navpc .np-toggle{
+  display:flex; align-items:center; gap:6px; flex:none; cursor:pointer;
+  height:30px; padding:0 11px; border-radius:8px; font-size:12px; font-weight:700;
+  color:#7CC4FF; background:rgba(46,124,246,.16); border:1px solid rgba(46,124,246,.34);
+  transition:.16s;
+}
+.navpc .np-toggle:hover{background:rgba(46,124,246,.34); color:#fff}
+.navpc .np-toggle .arw{
+  width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent;
+  border-top:5px solid currentColor; transition:transform .2s;
+}
+.navpc.open .np-toggle .arw{transform:rotate(180deg)}
+.navpc.open .np-toggle{background:rgba(46,124,246,.34); color:#fff}
+
+/* --- 折叠浮层：实色 --- */
+.navpc .np-panel{
+  position:absolute; top:var(--npch); left:0; right:0;
+  background:#0A1526;                    /* 实色 */
+  border-bottom:2px solid #2E7CF6;
+  box-shadow:0 20px 46px rgba(0,0,0,.7);
+  max-height:0; overflow:hidden; opacity:0;
+  transition:max-height .24s ease, opacity .18s ease;
+}
+.navpc.open .np-panel{max-height:min(72vh,560px); opacity:1; overflow-y:auto}
+.navpc .np-panel .np-in{
+  max-width:1440px; margin:0 auto; padding:16px 14px 20px;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+}
+.navpc .np-panel h4{
+  font-size:12px; color:#7CC4FF; letter-spacing:.5px; margin-bottom:8px;
+  padding-left:8px; border-left:3px solid #E23B3B;
+}
+.navpc .np-panel .np-links{display:flex; flex-wrap:wrap; gap:5px}
+.navpc .np-panel .np-links a{
+  font-size:12px; color:#C7D4E4; padding:5px 9px; border-radius:7px;
+  background:rgba(46,124,246,.08); border:1px solid rgba(46,124,246,.18); transition:.14s;
+}
+.navpc .np-panel .np-links a:hover{background:rgba(46,124,246,.26); color:#fff; border-color:#2E7CF6}
+.navpc .np-panel .np-links a.on{background:rgba(226,59,59,.22); color:#fff; border-color:#E23B3B; font-weight:700}
+.navpc .np-panel .np-quick{
+  grid-column:1/-1; display:flex; gap:8px; flex-wrap:wrap;
+  border-top:1px solid rgba(46,124,246,.24); padding-top:12px; margin-top:2px;
+}
+.navpc .np-panel .np-quick a{
+  display:flex; align-items:center; gap:6px; padding:7px 12px; border-radius:18px;
+  font-size:12px; font-weight:700; color:#fff;
+  background:linear-gradient(135deg,#2E7CF6,#1B3A6B); border:1px solid rgba(124,196,255,.3);
+}
+.navpc .np-panel .np-quick a img{width:14px; height:14px}
+.navpc .np-panel .np-quick a.hot{background:linear-gradient(135deg,#E23B3B,#A81F1F); border-color:rgba(255,138,128,.4)}
+
+/* 遮罩 */
+.navpc-mask{
+  display:none; position:fixed; inset:0; z-index:190;
+  background:rgba(4,9,16,.6); opacity:0; transition:opacity .18s;
+}
+.navpc-mask.on{display:block; opacity:1}
+
+/* 页面主体让出顶部导航高度 */
+.app{padding-top:var(--npch)}
+
+/* ============================ 旧顶部条：彻底失效 ============================ */
+.topbar{display:none !important}
+
+/* ============================ 底部 Tab（仅窄屏） ============================ */
+.tabbar{display:none}
+@media(max-width:899px){
+  .tabbar{
+    position:fixed; left:0; right:0; bottom:0; z-index:150; height:var(--tab-h);
+    display:flex; background:#0A1526;
+    border-top:2px solid #2E7CF6;
+  }
+  .tabbar a{
+    flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:2px; color:#8896A8; font-size:10px; min-width:0; padding:0 2px;
+  }
+  .tabbar a img{width:19px; height:19px; opacity:.65}
+  .tabbar a span{overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:100%}
+  .tabbar a.on{color:#7CC4FF}
+  .tabbar a.on img{opacity:1; filter:drop-shadow(0 0 5px rgba(46,124,246,.9))}
+  .app{padding-bottom:calc(var(--tab-h) + 12px)}
+  /* 窄屏顶部导航精简：隐藏搜索框与部分图标，主频道横向滚动 */
+  .navpc .np-wrap{gap:8px; padding:0 10px}
+  .navpc .np-search{display:none}
+  .navpc .np-toggle span{display:none}
+  .navpc .np-toggle{padding:0 9px}
+}
+
+/* ============================ AI 悬浮球 ============================ */
+.ai-fab{
+  position:fixed; right:14px; top:50%; transform:translateY(-50%); z-index:210;
+  display:flex; flex-direction:column; align-items:center; gap:5px;
+}
+.ai-fab .ai-ball{
+  width:52px; height:52px; border-radius:50%; cursor:pointer; position:relative;
+  background:linear-gradient(145deg,#38B6FF,#1B3A6B 62%,#0F2B4C);
+  border:1px solid rgba(124,196,255,.55);
+  box-shadow:0 6px 22px rgba(46,124,246,.45), 0 0 0 4px rgba(46,124,246,.10);
+  display:flex; align-items:center; justify-content:center;
+  animation:aiPulse 2.8s ease-in-out infinite;
+}
+.ai-fab .ai-ball img{width:28px; height:28px}
+.ai-fab .ai-ball::after{
+  content:''; position:absolute; inset:-6px; border-radius:50%;
+  border:1px solid rgba(124,196,255,.35); animation:aiRing 2.8s ease-out infinite;
+}
+.ai-fab.on .ai-ball{
+  background:linear-gradient(145deg,#38B6FF,#2E7CF6 60%,#1B3A6B);
+  border-color:#7CC4FF; box-shadow:0 6px 26px rgba(56,182,255,.7), 0 0 0 5px rgba(56,182,255,.18);
+}
+.ai-fab .ai-tip{
+  font-size:10px; font-weight:700; color:#fff; padding:2px 7px; border-radius:7px;
+  background:rgba(226,59,59,.92); white-space:nowrap;
+}
+@keyframes aiPulse{0%,100%{box-shadow:0 6px 22px rgba(46,124,246,.45),0 0 0 4px rgba(46,124,246,.10)}
+  50%{box-shadow:0 6px 26px rgba(56,182,255,.62),0 0 0 8px rgba(46,124,246,.05)}}
+@keyframes aiRing{0%{transform:scale(.9);opacity:.8}100%{transform:scale(1.35);opacity:0}}
+
+/* AI 面板 */
+.ai-dock{
+  position:fixed; z-index:211; right:76px; top:50%; transform:translateY(-50%) scale(.94);
+  width:290px; max-height:66vh; opacity:0; pointer-events:none;
+  transform-origin:right center; transition:.2s;
+  background:#0E1E36; border:1px solid rgba(56,182,255,.4); border-radius:14px;
+  overflow:hidden; box-shadow:0 18px 48px rgba(0,0,0,.7);
+  display:flex; flex-direction:column;
+}
+.ai-dock.on{opacity:1; pointer-events:auto; transform:translateY(-50%) scale(1)}
+.ai-dock .ad-hd{
+  padding:11px 13px; border-bottom:1px solid rgba(56,182,255,.24);
+  display:flex; align-items:center; gap:8px;
+}
+.ai-dock .ad-hd img{width:22px; height:22px}
+.ai-dock .ad-hd .t{font-size:13px; font-weight:800; color:#fff}
+.ai-dock .ad-hd .s{font-size:11px; color:#7CC4FF}
+.ai-dock .ad-hd .x{
+  margin-left:auto; width:22px; height:22px; border-radius:6px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  color:#7CC4FF; background:rgba(46,124,246,.16); font-size:12px;
+}
+.ai-dock .ad-bd{padding:11px 13px; overflow-y:auto; flex:1}
+.ai-dock .ad-bd .hint{font-size:11px; color:#8896A8; line-height:1.65; margin-bottom:9px}
+.ai-dock .ad-q{display:flex; flex-direction:column; gap:6px}
+.ai-dock .ad-q a{
+  display:flex; align-items:center; gap:7px; padding:8px 10px; border-radius:9px;
+  font-size:12px; color:#C7D4E4; background:rgba(46,124,246,.1);
+  border:1px solid rgba(46,124,246,.2); transition:.14s;
+}
+.ai-dock .ad-q a:hover{background:rgba(46,124,246,.24); color:#fff}
+.ai-dock .ad-q a img{width:14px; height:14px; opacity:.85; flex:none}
+.ai-dock .ad-ft{padding:9px 13px; border-top:1px solid rgba(56,182,255,.24); display:flex; gap:7px}
+.ai-dock .ad-ft a{
+  flex:1; text-align:center; padding:8px 0; border-radius:9px; font-size:12px; font-weight:700;
+  color:#fff; background:linear-gradient(135deg,#38B6FF,#2E7CF6);
+}
+.ai-dock .ad-ft a.gh{
+  background:rgba(46,124,246,.14); border:1px solid rgba(46,124,246,.34); color:#7CC4FF;
+}
+
+/* 桌面宽屏：AI 球略大、靠右 */
+@media(min-width:900px){
+  .ai-fab{right:20px}
+  .ai-fab .ai-ball{width:56px; height:56px}
+  .ai-fab .ai-ball img{width:30px; height:30px}
+  .ai-dock{right:88px; width:320px}
+}
+/* 窄屏：AI 面板改底部上浮 */
+@media(max-width:899px){
+  .ai-fab{right:10px}
+  .ai-fab .ai-ball{width:46px; height:46px}
+  .ai-fab .ai-ball img{width:25px; height:25px}
+  .ai-dock{
+    right:10px; left:10px; width:auto; top:auto; bottom:calc(var(--tab-h) + 10px);
+    transform:translateY(12px) scale(.98); transform-origin:bottom center; max-height:60vh;
+  }
+  .ai-dock.on{transform:translateY(0) scale(1)}
+}

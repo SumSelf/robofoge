@@ -1,0 +1,182 @@
+/* ==========================================================================
+   ROBOFORGE · theme.css
+   频道主题层：工业 Industrial 40% / 玩具 Toy 30% / 科技 Tech 20% / 社交 Social 10%
+   用法：<body class="theme-toy"> 或给 .app 加 class
+   ========================================================================== */
+
+/* ---------- 工业风（默认：新闻宣发 / 产品 / 项目 / 需求） ---------- */
+.theme-industrial .app,
+.app.theme-industrial{
+  /* 背景：继承全站统一底图（工业风为默认基调） */
+}
+.theme-industrial .card,.app.theme-industrial .card{border-radius:10px;border-color:rgba(46,124,246,.3)}
+.theme-industrial .tt,.app.theme-industrial .tt{letter-spacing:.2px}
+.theme-industrial .sec-hd h2::before,.app.theme-industrial .sec-hd h2::before{background:var(--red);width:5px;height:16px}
+
+/* ---------- 玩具风（mini机器人 / 模块玩法 / 3D 打印 / 配件） ----------
+   背景沿用全站统一底图；玩具风通过圆角、鲜艳按钮与亮色标签体现
+   ------------------------------------------------------------------ */
+.app.theme-toy,.theme-toy .app{
+  /* 背景：继承 base.css 的全站统一底图，此处不再覆盖 */
+  color:var(--steel-l);
+}
+.theme-toy .app .card,.app.theme-toy .card{
+  background:linear-gradient(160deg,rgba(28,52,88,.78),rgba(13,26,46,.90));
+  border:2px solid rgba(46,124,246,.34);border-radius:22px;box-shadow:0 8px 22px rgba(0,0,0,.34);
+}
+.theme-toy .app .card::after,.app.theme-toy .card::after{border-color:var(--red);opacity:.6;border-radius:0 20px 0 0;width:18px;height:18px}
+.theme-toy .app .tt,.app.theme-toy .tt,.theme-toy .app h1,.theme-toy .app h2,.theme-toy .app h3,.theme-toy .app h4,
+.app.theme-toy .tt,.app.theme-toy h1,.app.theme-toy h2,.app.theme-toy h3,.app.theme-toy h4{color:#EAF3FF}
+.theme-toy .app .ts,.app.theme-toy .ts,.theme-toy .app .sec-sub,.theme-toy .app .item .info .meta,.app.theme-toy .item .info .meta{color:var(--steel)}
+.theme-toy .app .item,.app.theme-toy .item{background:rgba(26,48,82,.66);border:2px solid rgba(46,124,246,.28);border-radius:18px}
+.theme-toy .app .sec-hd h2::before,.app.theme-toy .sec-hd h2::before{background:var(--red);border-radius:4px;height:18px;width:6px}
+.theme-toy .app .chip,.app.theme-toy .chip{background:rgba(46,124,246,.12);border:2px solid rgba(46,124,246,.3);color:var(--steel-l);border-radius:22px;font-weight:600}
+.theme-toy .app .chip.on,.app.theme-toy .chip.on{background:linear-gradient(135deg,#FF6B5E,#E23B3B);border-color:transparent;color:#fff}
+.theme-toy .app .btn-primary,.app.theme-toy .btn-primary{background:linear-gradient(135deg,#4A90FF,#2E7CF6);border-radius:22px}
+.theme-toy .app .filterbar .f,.app.theme-toy .filterbar .f{background:rgba(26,48,82,.66);border:2px solid rgba(46,124,246,.28);border-radius:14px;color:var(--steel-l)}
+.theme-toy .app .fi .input,.app.theme-toy .fi .input,.theme-toy .app .fi textarea,.app.theme-toy .fi textarea,
+.theme-toy .app .fi select,.app.theme-toy .fi select{background:rgba(10,22,40,.74);border:2px solid rgba(46,124,246,.3);color:#EAF3FF;border-radius:14px}
+.theme-toy .app .fi label,.app.theme-toy .fi label{color:var(--steel-l)}
+.theme-toy .app .topbar,.app.theme-toy .topbar{background:rgba(10,21,38,.96);border-bottom:2px solid rgba(46,124,246,.34)}
+.theme-toy .app .topbar .title,.app.theme-toy .topbar .title{color:#EAF3FF}
+.theme-toy .app .tabbar,.app.theme-toy .tabbar{background:#0A1526;border-top:2px solid rgba(46,124,246,.42)}
+.theme-toy .app .tabbar a,.app.theme-toy .tabbar a{color:#8896A8}
+.theme-toy .app .tabbar a.on,.app.theme-toy .tabbar a.on{color:#7CC4FF}
+.theme-toy .app .tabbar a.on img,.app.theme-toy .tabbar a.on img{filter:drop-shadow(0 0 5px rgba(46,124,246,.9))}
+.theme-toy .app .stat,.app.theme-toy .stat{background:rgba(26,48,82,.66);border:2px solid rgba(46,124,246,.28);border-radius:18px}
+.theme-toy .app .stat b,.app.theme-toy .stat b{color:#fff}
+.theme-toy .app .doc,.app.theme-toy .doc,.theme-toy .app .ucard,.app.theme-toy .ucard{background:rgba(26,48,82,.66);border:2px solid rgba(46,124,246,.28);border-radius:18px}
+.theme-toy .app .ucard .nm,.app.theme-toy .ucard .nm,.theme-toy .app .doc .dn,.app.theme-toy .doc .dn{color:#EAF3FF}
+.theme-toy .app .progress,.app.theme-toy .progress{background:rgba(46,124,246,.18);border:0;height:10px;border-radius:6px}
+.theme-toy .app .foot,.app.theme-toy .foot{color:var(--steel);border-color:var(--line)}
+.theme-toy .app .searchbar .box,.app.theme-toy .searchbar .box{background:rgba(26,48,82,.66);border:2px solid rgba(46,124,246,.28)}
+.theme-toy .app .btn-ghost,.app.theme-toy .btn-ghost{background:rgba(46,124,246,.12);border:2px solid rgba(46,124,246,.3);color:var(--blue-l)}
+
+/* ---------- 科技风（AI 智造） ---------- */
+.app.theme-tech,.theme-tech .app{
+  /* 背景：继承全站统一底图；科技风通过青蓝发光体现 */
+}
+.theme-tech .app .card,.app.tech .card{
+  background:linear-gradient(160deg,rgba(20,44,80,.72),rgba(8,20,39,.86));
+  border:1px solid rgba(56,182,255,.35);border-radius:16px;
+  box-shadow:0 0 24px rgba(46,124,246,.18),inset 0 0 30px rgba(56,182,255,.06);
+  backdrop-filter:blur(6px);
+}
+.theme-tech .app .hero::after{background:linear-gradient(180deg,rgba(11,20,32,.28) 0%,rgba(11,20,32,.70) 55%,#0B1420 100%)}
+.theme-tech .app .btn-primary,.app.tech .btn-primary{
+  background:linear-gradient(135deg,#38B6FF,#2E7CF6);box-shadow:0 0 18px rgba(56,182,255,.45);
+}
+.theme-tech .app .chip.on,.app.tech .chip.on{background:linear-gradient(135deg,#38B6FF,#1B6FD6);box-shadow:0 0 14px rgba(56,182,255,.4)}
+.theme-tech .app .sec-hd h2,.app.tech .sec-hd h2{text-shadow:0 0 12px rgba(56,182,255,.5)}
+.theme-tech .app .sec-hd h2::before{background:linear-gradient(180deg,#38B6FF,#E23B3B);box-shadow:0 0 8px #38B6FF}
+.theme-tech .app .msg.me .bubble,.app.tech .msg.me .bubble{background:linear-gradient(135deg,#38B6FF,#1B6FD6);box-shadow:0 0 14px rgba(56,182,255,.35)}
+.theme-tech .app .progress i,.app.tech .progress i{background:linear-gradient(90deg,#38B6FF,#E23B3B);box-shadow:0 0 10px rgba(56,182,255,.6)}
+.glow{border:1px solid rgba(56,182,255,.5)!important;box-shadow:0 0 18px rgba(56,182,255,.25)!important}
+
+/* ---------- 社交风（论坛 / 学习 / 用户社区）----------
+   深色基调：与全站蓝黑底色统一，仅保留社交化的圆角、气泡与头像元素
+   -------------------------------------------------------------- */
+.app.theme-social,.theme-social .app{
+  /* 背景：继承全站统一底图；社交风通过圆角与气泡体现 */
+}
+.theme-social .app .card,.app.theme-social .card{
+  background:linear-gradient(160deg,rgba(24,44,76,.82),rgba(12,25,44,.92));
+  border:1px solid rgba(46,124,246,.28);border-radius:18px;box-shadow:0 6px 20px rgba(0,0,0,.34);
+}
+.theme-social .app .card::after,.app.theme-social .card::after{border-color:var(--red);opacity:.45;border-radius:0 16px 0 0;width:16px;height:16px}
+.theme-social .app .tt,.app.theme-social .tt,.theme-social .app h1,.theme-social .app h2,.theme-social .app h3,
+.app.theme-social .tt{color:#E8F2FF}
+.theme-social .app .ts,.app.theme-social .ts,.theme-social .app .item .info .meta,.app.theme-social .item .info .meta{color:var(--steel)}
+.theme-social .app .item,.app.theme-social .item{
+  background:rgba(20,38,66,.62);border:1px solid rgba(46,124,246,.22);border-radius:16px;
+}
+.theme-social .app .topbar,.app.theme-social .topbar{
+  background:linear-gradient(180deg,rgba(11,23,41,.97),rgba(11,23,41,.86));border-bottom:1px solid var(--line);
+}
+.theme-social .app .topbar .title,.app.theme-social .topbar .title{color:#fff}
+.theme-social .app .tabbar,.app.theme-social .tabbar{
+  background:linear-gradient(180deg,rgba(11,23,39,.98),rgba(7,14,23,1));border-top:1px solid var(--line);
+}
+.theme-social .app .tabbar a,.app.theme-social .tabbar a{color:var(--steel)}
+.theme-social .app .tabbar a.on,.app.theme-social .tabbar a.on{color:var(--blue-l)}
+.theme-social .app .tabbar a.on img,.app.theme-social .tabbar a.on img{filter:drop-shadow(0 0 6px rgba(46,124,246,.9))}
+.theme-social .app .chip,.app.theme-social .chip{
+  background:rgba(46,124,246,.10);border:1px solid rgba(46,124,246,.26);color:var(--steel-l);border-radius:18px;
+}
+.theme-social .app .chip.on,.app.theme-social .chip.on{background:linear-gradient(135deg,#4A90FF,#2E7CF6);color:#fff;border-color:transparent}
+.theme-social .app .msg .bubble,.app.theme-social .msg .bubble{
+  background:rgba(46,124,246,.14);border:1px solid rgba(46,124,246,.28);color:#E8F2FF;
+}
+.theme-social .app .msg .bubble .time,.app.theme-social .msg .bubble .time{color:var(--steel)}
+.theme-social .app .fi .input,.app.theme-social .fi .input,.theme-social .app .fi textarea,.app.theme-social .fi textarea,
+.theme-social .app .fi select,.app.theme-social .fi select{
+  background:rgba(10,22,40,.72);border:1px solid rgba(46,124,246,.28);color:#E8F2FF;border-radius:12px;
+}
+.theme-social .app .fi label,.app.theme-social .fi label{color:var(--steel-l)}
+.theme-social .app .doc,.app.theme-social .doc,.theme-social .app .ucard,.app.theme-social .ucard{
+  background:rgba(20,38,66,.66);border:1px solid rgba(46,124,246,.24);border-radius:16px;
+}
+.theme-social .app .ucard .nm,.app.theme-social .ucard .nm,.theme-social .app .doc .dn,.app.theme-social .doc .dn{color:#E8F2FF}
+.theme-social .app .stat,.app.theme-social .stat{background:rgba(20,38,66,.66);border:1px solid rgba(46,124,246,.24)}
+.theme-social .app .stat b,.app.theme-social .stat b{color:#fff}
+.theme-social .app .sec-hd h2,.app.theme-social .sec-hd h2{color:#E8F2FF}
+.theme-social .app .sec-hd h2::before,.app.theme-social .sec-hd h2::before{background:var(--red);width:5px;height:16px}
+.theme-social .app .foot,.app.theme-social .foot{color:var(--steel);border-color:var(--line)}
+.theme-social .app .progress,.app.theme-social .progress{background:rgba(46,124,246,.16)}
+.theme-social .app .filterbar .f,.app.theme-social .filterbar .f{
+  background:rgba(20,38,66,.66);border:1px solid rgba(46,124,246,.24);color:var(--steel-l);
+}
+.theme-social .app .searchbar .box,.app.theme-social .searchbar .box{
+  background:rgba(20,38,66,.66);border:1px solid rgba(46,124,246,.24);
+}
+.theme-social .app .btn-ghost,.app.theme-social .btn-ghost{
+  background:rgba(46,124,246,.12);border:1px solid rgba(46,124,246,.3);color:var(--blue-l);
+}
+
+/* ---------- 通用：主题下的英雄区与标签适配 ---------- */
+.theme-toy .app .hero h1,.theme-social .app .hero h1{color:#fff}
+.theme-toy .app .hero p,.theme-social .app .hero p{color:rgba(255,255,255,.85)}
+.theme-toy .app .tag,.app.theme-toy .tag{background:rgba(46,124,246,.12);color:#2E7CF6;border-color:rgba(46,124,246,.3)}
+.theme-toy .app .tag.red,.app.theme-toy .tag.red{background:rgba(226,59,59,.12);color:#E23B3B;border-color:rgba(226,59,59,.3)}
+.theme-toy .app .foot,.app.theme-toy .foot{color:#8494AC;border-color:#DCE8FA}
+/* 社交主题（深色基调）标签与页脚 */
+.theme-social .app .tag,.app.theme-social .tag{background:rgba(46,124,246,.16);color:var(--blue-l);border-color:rgba(46,124,246,.34)}
+.theme-social .app .tag.red,.app.theme-social .tag.red{background:rgba(226,59,59,.16);color:var(--red-l);border-color:rgba(226,59,59,.34)}
+
+/* ---------- 频道专属装饰 ---------- */
+.chan-news .hero{background:#0B1420}
+.chan-module .hero .grid-corner{border-color:var(--blue-l)}
+.chan-toy .hero::after{background:linear-gradient(180deg,rgba(11,20,32,.26) 0%,rgba(11,20,32,.68) 55%,#0B1420 100%)}
+.chan-ai .hero::after{background:linear-gradient(180deg,rgba(11,20,32,.26) 0%,rgba(11,20,32,.70) 55%,#0B1420 100%)}
+.chan-ai .hero h1{background:linear-gradient(90deg,#fff,#7CC4FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ---------- 首页混合风格条（工业+玩具+科技+社交 4:3:2:1） ---------- */
+.mix-strip{display:flex;height:6px;border-radius:3px;overflow:hidden;margin:10px 12px 0}
+.mix-strip i{display:block;height:100%}
+.mix-strip i.i1{background:var(--blue-d);flex:4}
+.mix-strip i.i2{background:var(--red);flex:3}
+.mix-strip i.i3{background:var(--cyan);flex:2}
+.mix-strip i.i4{background:#9FC5FF;flex:1}
+
+/* ---------- 首页快捷宫格（工业硬边 + 玩具圆角混搭） ---------- */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px}
+.quick a{
+  display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border-radius:16px;
+  background:linear-gradient(160deg,rgba(18,35,59,.9),rgba(10,20,34,.9));border:1px solid var(--line);
+  font-size:11px;color:var(--steel-l);position:relative;overflow:hidden;
+}
+.quick a img{width:26px;height:26px}
+.quick a.hot::after{content:'HOT';position:absolute;right:4px;top:4px;font-size:8px;color:#fff;background:var(--red);padding:1px 4px;border-radius:4px}
+.quick a.toy{border-radius:22px;background:linear-gradient(160deg,#fff,#EEF4FF);color:#16294A;border-color:#DCE8FA}
+
+/* ---------- 板块横幅（广告/活动位，用生成的广告图） ---------- */
+.adslot{margin:12px;border-radius:var(--r-m);overflow:hidden;border:1px solid var(--line);position:relative}
+.adslot img{width:100%;height:auto}
+.adslot .ad-tag{position:absolute;right:8px;top:8px;font-size:10px;background:rgba(0,0,0,.5);color:#fff;padding:2px 6px;border-radius:4px}
+
+/* ---------- 专题 / 话题 ---------- */
+.topic{position:relative;border-radius:var(--r-m);overflow:hidden;border:1px solid var(--line);min-height:96px}
+.topic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.topic .tk{position:relative;z-index:2;padding:14px;background:linear-gradient(90deg,rgba(6,13,24,.85),rgba(6,13,24,.25))}
+.topic .tk h3{font-size:14px;color:#fff}
+.topic .tk p{font-size:11px;color:var(--steel-l);margin-top:4px}
