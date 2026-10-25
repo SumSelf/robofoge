@@ -9,11 +9,28 @@
 | 站点名称 | ROBOFORGE 机甲工场 |
 | 交付形态 | 纯前端静态站（HTML + CSS + JS），可直接部署发布 |
 | 页面规模 | **234 页** = 首页 1 + 前台 204 + 后台 29 |
-| 图片资源 | AI 主视觉 10 套（含 9:16 / 16:9 / 卡片 / 方图 / 长条 等 7 种切图）+ 程序化贴图库 400+ |
+| 图片资源 | **全部 WebP**（264 张，8.9 MB）+ 矢量图标 599 个（0.6 MB），图片目录合计 **9.7 MB** |
 | 数据模式 | `mock`（内置模拟数据，零后端可跑）/ `real`（真实 HTTP 接口）双版本，一键切换 |
 | 语言 | 中 / 英双语，全站 `data-i18n` + `data-zh/data-en` 双轨，实时切换（词典 2583 条） |
 | 适配 | PC 顶部折叠浮窗导航（≥900px）+ 移动底部 Tab（<900px），导航统一抽离为 `assets/css/nav.css` |
 | 风格 | 前台：工业 50% + 科技 20% + 玩具 20% + 社交 10%；**四种风格共享同一张全站背景**，差异只体现在前景组件（圆角/描边/按钮/发光） |
+
+## 〇·补、图片资源
+
+| 类别 | 格式 | 数量 | 体积 |
+|---|---|---|---|
+| AI 主视觉 / 品类实拍 / 场景图 | WebP | 264 张 | 8.9 MB |
+| 图标 / 品牌标识 / 背景纹理 | SVG | 599 个 | 0.6 MB |
+| 保留 PNG（WebP 反而更大） | PNG | 4 张 | 0.1 MB |
+
+切图规格统一 7 种：16:9 原图 / 卡片 4:3 / 方图 1:1 / 缩略 16:9 / 长条 / 9:16 竖版 / 横幅条，
+命名 `{pagename}_{id}`，按 `pagename_id` 方式嵌入。
+
+> 原 PNG 94.7 MB 已全量转 WebP（**省 91%**），原文件已删除。
+> design_hero / flow_hero / production_hero / nav_preview_pc 四张为纯色示意图，
+> WebP 编码后反而更大，故保留 PNG。
+
+---
 
 ## 一·补、本次增量：设计 / 集成 / 测试 / 流水线生产闭环
 
@@ -110,7 +127,7 @@
 产品已置顶进入 `products` 列表，并在首页横幅、导航浮层「产品与项目」组、网站地图同时露出；配套 3 条厂商宣发新闻。
 
 ### 3. 页脚备案与联系信息
-全站页脚新增联系卡片：**蜀ICP备18013136号**、Made by 闪马科技个人工作室、联系人 万三（SumSelf）、电话 +86 18683379773、微信 sumstc 及二维码 `assets/img/gen/brand/wx_qr.png`。
+全站页脚新增联系卡片：**蜀ICP备18013136号**、Made by 闪马科技个人工作室、联系人 万三（SumSelf）、电话 +86 18683379773、微信 sumstc 及二维码 `assets/img/gen/brand/wx_qr.webp`。
 
 ### 4. 第二批 AI 实拍图（6 张 × 7 规格）
 产品实拍：闪马 SM-H7 主板 / 商用清洁机器人 / 具身人形机器人；产线实拍：SMT 贴片线 / 装配工位 / 质检台。
@@ -136,6 +153,46 @@
 | 品牌分布 | 8 家均分（13/13/13…） | 长尾形态（5:4:3:3:2:2:2:2:1:1:1:1） |
 
 **保留项（按需求不动）**：`assets/js/api.mock.js` 模拟数据与 `api.real.js` 真实接口双版本、`data/mock_data.json` 完整数据、全部页面数量与结构。
+
+
+## 九、接口与数据库文档（后端对接）
+
+站点已完成前后端分离，配套提供完整的接口与数据库设计文档，位于 `docs/`：
+
+| 文件 | 内容 |
+|---|---|
+| `docs/README.md` | 前端接入方式（mock/real 切换）、JS 使用点清单、后端实现规范、联调检查清单 |
+| `docs/API.md` | **193 个接口**清单：方法 / 路径 / JS 调用 / Mock 实现状态 / 关联数据表 |
+| `docs/DATABASE.md` | **106 张表**的对象形式设计：字段 / 类型 / 约束 / 索引 / 核心对象关系 |
+| `docs/schema.sql` | MySQL 8 建表脚本，含初始化数据，按外键拓扑排序可直接整文件执行 |
+| `docs/mock_requests.md` | **965 条**原始 HTTP 请求（193 接口 × 5）+ 数据结构转换 + 对应 SQL |
+| `docs/mock_seed.sql` | 上述请求落地为 **1140 条** INSERT（含外键种子），可直接执行 |
+| `docs/mock_audit.md` | 走查报告：1140 条 SQL 的 8 项校验，当前 **0 问题** |
+| `docs/mock_responses.md` | **965 条**响应报文（193 接口 × 5，含异常场景） |
+| `docs/response_audit.md` | 响应数据检查报告：22 项校验，当前 **0 问题** |
+
+### 快速对接
+
+```bash
+# 1. 建库 + 灌入模拟数据（得到一个装满数据的可运行环境）
+mysql -u root -p < docs/schema.sql
+mysql -u root -p roboforge < docs/mock_seed.sql
+
+# 2. 前端指向后端网关
+window.RF_CONFIG = { apiBase: 'https://api.example.com/api/v1' };
+
+# 3. 切换到真实接口
+RF.setMode('real');
+```
+
+接口分组（23 个）：`production`(30) `news`(15) `design`(13) `ai`(11) `admin`(11)
+`auth`(9) `products`(9) `modules`(9) `apply`(9) `resource`(9) `forum`(8) `toys`(7)
+`biz`(7) `users`(7) `flow`(7) `publish`(6) `learn`(5) `messages`(5) `funds`(5)
+`tickets`(4) `enroll`(3) `files`(2) `review`(2)
+
+数据库域（15 个）：用户权限(14) 内容宣发(11) 论坛(3) 学习(5) 产品(6) 需求项目(8)
+设计(6) 生产(21) 全流程(4) AI(8) 沟通(5) 资金(6) 工单(3) 文件(4) 系统(2)
+
 
 ## 二、目录结构
 
@@ -206,7 +263,46 @@ roboforge/
 # 方式一：本地预览
 cd roboforge && python3 -m http.server 8080
 
-# 方式二：Nginx
+# 方式二：Nginx（推荐）
+
+```nginx
+server {
+  listen 80;
+  server_name roboforge.com;
+  root /var/www/roboforge;
+  index index.html;
+
+  # 只压文本类，WebP/PNG 已压缩过，再压是白耗 CPU
+  gzip on;
+  gzip_types text/html text/css application/javascript
+             application/json image/svg+xml;
+  gzip_min_length 1024;
+  gzip_comp_level 6;
+
+  # 图片长缓存（WebP 文件名不变，可放心 immutable）
+  location ~* \.(webp|png|svg)$ {
+    expires 30d;
+    add_header Cache-Control "public, immutable";
+    sendfile on;
+    tcp_nopush on;
+  }
+
+  # HTML 不缓存，保证发版即时生效
+  location ~* \.html$ {
+    expires -1;
+    add_header Cache-Control "no-cache";
+  }
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+}
+```
+
+> WebP 现代浏览器全支持（覆盖率 >97%），未做 `<picture>` 回退。
+> 若要兼容极旧浏览器，可在 `assets/img/` 保留一份 PNG 副本并加 `<picture>` 标签。
+
+# 方式三：Node.js 静态服务（仅应急，不建议生产）
 server {
     listen 80;
     server_name roboforge.example.com;
