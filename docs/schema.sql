@@ -1,5 +1,5 @@
 -- =============================================================================
--- ROBOFORGE 机甲工场 · 机器人聚合开源平台 —— 数据库建表脚本 schema.sql
+-- SUMFORGE 闪马工厂 · 机器人聚合开源平台 —— 数据库建表脚本 schema.sql
 -- -----------------------------------------------------------------------------
 -- 版本    : v1.0
 -- 引擎    : MySQL 8.0+ / MariaDB 10.6+
@@ -16,10 +16,10 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-CREATE DATABASE IF NOT EXISTS `roboforge`
+CREATE DATABASE IF NOT EXISTS `sumforge`
   DEFAULT CHARACTER SET utf8mb4
   DEFAULT COLLATE utf8mb4_0900_ai_ci;
-USE `roboforge`;
+USE `sumforge`;
 
 
 
@@ -2348,7 +2348,7 @@ INSERT INTO `rf_category` (`cat_code`,`cat_name`,`cat_name_en`,`parent_id`,`cat_
 
 -- 系统设置
 INSERT INTO `rf_setting` (`setting_key`,`setting_value`,`group_name`,`remark`) VALUES
- ('site_name','ROBOFORGE 机甲工场','base','站点名称'),
+ ('site_name','SUMFORGE 闪马工厂','base','站点名称'),
  ('site_icp','蜀ICP备18013136号','base','备案号'),
  ('site_entity','闪马科技个人工作室','base','运营主体'),
  ('site_contact','万三（SumSelf）','contact','联系人'),

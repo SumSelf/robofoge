@@ -1,4 +1,4 @@
-# ROBOFORGE · 数据库设计（对象形式）
+# SUMFORGE · 数据库设计（对象形式）
 
 > 共 **106** 张表 · **15** 个域 · 建表脚本见 `schema.sql`
 
@@ -6,7 +6,7 @@
 
 | 项 | 约定 |
 |---|---|
-| 前缀 | 全部表以 `rf_` 开头（ROBOFORGE） |
+| 前缀 | 全部表以 `rf_` 开头（SUMFORGE） |
 | 主键 | `id BIGINT UNSIGNED AUTO_INCREMENT`，业务编号另存 `xxx_no VARCHAR(32) UNIQUE` |
 | 时间 | `created_at` / `updated_at` / `deleted_at`（软删） |
 | 金额 | `INT`，单位「分」，前端 `/100` |

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ROBOFORGE · admin.css
+   SUMFORGE · admin.css
    后台管理：纯素 · 严谨 · 克制（无插画、无渐变堆砌、细边框、数据优先）
    配色：底 #F5F7FA / 面 #FFFFFF / 线 #E3E8EF / 字 #1F2D3D / 强调 #2E7CF6 / 警示 #E23B3B
    ========================================================================== */
@@ -177,3 +177,8 @@ body.admin{
 @media(min-width:1200px){
   .admin .a-kpis{grid-template-columns:repeat(6,1fr)}
 }
+
+/* 后台看板底图（纯装饰，不抢内容） */
+.dash-bg{position:relative;height:96px;overflow:hidden;border-radius:8px;margin-bottom:12px}
+.dash-bg img{width:100%;height:100%;object-fit:cover;opacity:.5}
+@media(max-width:900px){.dash-bg{height:64px}}

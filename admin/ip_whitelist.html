@@ -4,24 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#1B3A6B">
-<meta name="description" content="ROBOFORGE 机甲工场 · 机器人聚合开源平台：从商业需求到定向机器人生产的全流程互联网化">
-<title>IP 白名单 · ROBOFORGE 机甲工场</title>
+<meta name="description" content="SUMFORGE 闪马工厂 · 机器人聚合开源平台：从商业需求到定向机器人生产的全流程互联网化">
+<title>IP 白名单 · SUMFORGE 闪马工厂</title>
 <link rel="icon" href="../assets/img/gen/brand/favicon.svg">
-<link rel="stylesheet" href="../assets/css/base.css">
-<link rel="stylesheet" href="../assets/css/components.css">
-<link rel="stylesheet" href="../assets/css/theme.css">
-<link rel="stylesheet" href="../assets/css/nav.css">
-<link rel="stylesheet" href="../assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/base.css?v=202610291638">
+<link rel="stylesheet" href="../assets/css/components.css?v=202610291638">
+<link rel="stylesheet" href="../assets/css/theme.css?v=202610291638">
+<link rel="stylesheet" href="../assets/css/nav.css?v=202610291638">
+<link rel="stylesheet" href="../assets/css/admin.css?v=202610291638">
 </head>
 <body class="admin" data-menu="ipwl">
 <div class="admin-app">
 <header class="a-top">
-  <img class="lg" src="../assets/img/gen/brand/logo_admin.svg" alt="ROBOFORGE">
+  <img class="lg" src="../assets/img/gen/brand/logo_admin.svg" alt="SUMFORGE">
   <span class="tt"><span data-i18n="管理后台">管理后台</span></span>
   <span class="env"><span data-i18n="生产环境">生产环境</span></span>
   <div class="sp"></div>
   <div class="tb-btn tb-lang" data-lang-btn style="width:auto;padding:0 10px;border-radius:4px;background:#EEF4FF;border:1px solid #D6E4FF;color:#2E7CF6">EN</div>
-  <div class="usr"><img src="../assets/img/gen/avatar/user_03.webp" alt="u"><span data-i18n="超级管理员">超级管理员</span></div>
+  <div class="usr"><img src="../assets/img/gen/avatar/user_03.svg" alt="u"><span data-i18n="超级管理员">超级管理员</span></div>
 </header>
 <aside class="a-side">
   <div class="gp"><span data-i18n="运营">运营</span></div>
@@ -39,14 +39,14 @@
       <div class="dl"><span data-i18n="较昨日">较昨日</span> <b class="">+0.0%</b></div></div></div><section class="a-box"><div class="a-box-hd bh"><span><span data-i18n="新增白名单">新增白名单</span></span><span></span></div><div class="bc" style="padding:0"><div class="a-filter" data-a-filter><input type="text" placeholder="例如 10.20.31.0/24" data-ph-zh="例如 10.20.31.0/24" data-ph-en="e.g. 10.20.31.0/24"><input type="text" placeholder="用途说明" data-ph-zh="用途说明" data-ph-en="Purpose">
   <button class="a-btn pri sm" data-a-search><span data-i18n="查询">查询</span></button>
   <button class="a-btn sm" data-a-reset><span data-i18n="重置">重置</span></button></div></div></section><section class="a-box"><div class="a-box-hd bh"><span><span data-i18n="白名单列表">白名单列表</span></span><span></span></div><div class="bc" style="padding:0"><div class="a-tb-wrap"><table class="a-tb" data-tb="ip">
-  <thead><tr><th style="width:36px"><input type="checkbox"></th><th><span data-i18n="IP / 网段">IP / 网段</span></th><th><span data-i18n="备注">备注</span></th><th><span data-i18n="添加人">添加人</span></th><th><span data-i18n="添加时间">添加时间</span></th><th><span data-i18n="状态">状态</span></th><th><span data-i18n="操作">操作</span></th></tr></thead><tbody><tr><td><input type="checkbox"></td><td>10.20.31.0/24</td><td>办公内网</td><td>admin</td><td>2025-06-01</td><td>生效中</td><td><button class="a-btn" data-op="toggle">停用</button><button class="a-btn danger" data-op="del">删除</button></td></tr><tr><td><input type="checkbox"></td><td>10.20.32.0/24</td><td>办公内网 B</td><td>admin</td><td>2025-06-01</td><td>生效中</td><td><button class="a-btn" data-op="toggle">停用</button><button class="a-btn danger" data-op="del">删除</button></td></tr><tr><td><input type="checkbox"></td><td>203.0.113.0/24</td><td>合作方 VPN</td><td>ops_zhang</td><td>2025-11-12</td><td>生效中</td><td><button class="a-btn" data-op="toggle">停用</button><button class="a-btn danger" data-op="del">删除</button></td></tr><tr><td><input type="checkbox"></td><td>198.51.100.10</td><td>临时维护</td><td>ops_li</td><td>2026-01-15</td><td>待生效</td><td><button class="a-btn" data-op="toggle">停用</button><button class="a-btn danger" data-op="del">删除</button></td></tr></tbody></table></div></div></section><section class="a-box"><div class="a-box-hd bh"><span><span data-i18n="拦截记录">拦截记录</span></span><span></span></div><div class="bc" style="padding:0"><div class="a-tb-wrap"><table class="a-tb" data-tb="ipb">
-  <thead><tr><th style="width:36px"><input type="checkbox"></th><th><span data-i18n="时间">时间</span></th><th><span data-i18n="IP">IP</span></th><th><span data-i18n="尝试账号">尝试账号</span></th><th><span data-i18n="结果">结果</span></th></tr></thead><tbody><tr><td><input type="checkbox"></td><td>2026-01-16 14:55</td><td>192.0.2.44</td><td>ops_zhang</td><td>已拦截</td></tr></tbody></table></div></div></section><div class="a-pg"><a href="#" data-p="1"><span data-i18n="上一页">上一页</span></a><a href="#" data-p="1" class="on">1</a><a href="#" data-p="2" class="">2</a><a href="#" data-p="3" class="">3</a><a href="#" data-p="4" class="">4</a><a href="#" data-p="5" class="">5</a><a href="#" data-p="2"><span data-i18n="下一页">下一页</span></a><span data-i18n="共 248 条">共 248 条</span></div>
-  <div style="font-size:11px;color:#8A99AC;padding:8px 0">ROBOFORGE <span data-i18n="管理后台">管理后台</span> · © <span id="a-year">2026</span></div>
+  <thead><tr><th style="width:36px"><input type="checkbox"></th><th><span data-i18n="IP / 网段">IP / 网段</span></th><th><span data-i18n="备注">备注</span></th><th><span data-i18n="添加人">添加人</span></th><th><span data-i18n="添加时间">添加时间</span></th><th><span data-i18n="状态">状态</span></th><th><span data-i18n="操作">操作</span></th></tr></thead><tbody><tr><td><input type="checkbox"></td><td>10.20.31.0/24</td><td>办公内网</td><td>admin</td><td>2026-05-19</td><td>生效中</td><td><button class="a-btn" data-op="toggle">停用</button><button class="a-btn danger" data-op="del">删除</button></td></tr><tr><td><input type="checkbox"></td><td>10.20.32.0/24</td><td>办公内网 B</td><td>admin</td><td>2026-02-23</td><td>生效中</td><td><button class="a-btn" data-op="toggle">停用</button><button class="a-btn danger" data-op="del">删除</button></td></tr><tr><td><input type="checkbox"></td><td>203.0.113.0/24</td><td>合作方 VPN</td><td>ops_zhang</td><td>2026-01-02</td><td>生效中</td><td><button class="a-btn" data-op="toggle">停用</button><button class="a-btn danger" data-op="del">删除</button></td></tr><tr><td><input type="checkbox"></td><td>198.51.100.10</td><td>临时维护</td><td>ops_li</td><td>2026-01-10</td><td>待生效</td><td><button class="a-btn" data-op="toggle">停用</button><button class="a-btn danger" data-op="del">删除</button></td></tr></tbody></table></div></div></section><section class="a-box"><div class="a-box-hd bh"><span><span data-i18n="拦截记录">拦截记录</span></span><span></span></div><div class="bc" style="padding:0"><div class="a-tb-wrap"><table class="a-tb" data-tb="ipb">
+  <thead><tr><th style="width:36px"><input type="checkbox"></th><th><span data-i18n="时间">时间</span></th><th><span data-i18n="IP">IP</span></th><th><span data-i18n="尝试账号">尝试账号</span></th><th><span data-i18n="结果">结果</span></th></tr></thead><tbody><tr><td><input type="checkbox"></td><td>2026-08-27 14:55</td><td>192.0.2.44</td><td>ops_zhang</td><td>已拦截</td></tr></tbody></table></div></div></section><div class="a-pg"><a href="#" data-p="1"><span data-i18n="上一页">上一页</span></a><a href="#" data-p="1" class="on">1</a><a href="#" data-p="2" class="">2</a><a href="#" data-p="3" class="">3</a><a href="#" data-p="4" class="">4</a><a href="#" data-p="5" class="">5</a><a href="#" data-p="2"><span data-i18n="下一页">下一页</span></a><span data-i18n="共 248 条">共 248 条</span></div>
+  <div style="font-size:11px;color:#8A99AC;padding:8px 0">SUMFORGE <span data-i18n="管理后台">管理后台</span> · © <span id="a-year">2026</span></div>
 </main>
 </div>
-<script src="../assets/js/api.mock.js"></script>
-<script src="../assets/js/api.real.js"></script>
-<script src="../assets/js/i18n.js"></script>
-<script src="../assets/js/app.js"></script>
-<script src="../assets/js/admin.js"></script>
+<script src="../assets/js/api.mock.js?v=202610291638"></script>
+<script src="../assets/js/api.real.js?v=202610291638"></script>
+<script src="../assets/js/i18n.js?v=202610291638"></script>
+<script src="../assets/js/app.js?v=202610291638"></script>
+<script src="../assets/js/admin.js?v=202610291638"></script>
 </body></html>

@@ -1,4 +1,4 @@
-/* ROBOFORGE · i18n.js —— 中英词典（中文 → 英文），由页面生成器自动汇总 */
+/* SUMFORGE · i18n.js —— 中英词典（中文 → 英文），由页面生成器自动汇总 */
 window.I18N = {
  "SM-H7 应用案例：四轴并联机器人 1ms 同步控制实测": "SM-H7 Case Study: 1ms Synced Control on a 4-Axis Parallel Robot",
  "闪马科技": "Shanma Tech",
@@ -88,7 +88,7 @@ window.I18N = {
  "发布需求": "Post requirement",
  "浏览产品": "Browse products",
  "让 AI 通过机器人进入现实世界": "Bring AI into the real world via robots",
- "ROBOFORGE 机甲工场：从商业需求到定向机器人设计、集成、测试、流水线生产的全流程互联网化平台": "ROBOFORGE: from business requirement to robot design, integration, testing and mass production",
+ "SUMFORGE 闪马工厂：从商业需求到定向机器人设计、集成、测试、流水线生产的全流程互联网化平台": "SUMFORGE: from business requirement to robot design, integration, testing and mass production",
  "首页": "Home",
  "论坛": "Forum",
  "模块": "Modules",
@@ -112,7 +112,7 @@ window.I18N = {
  "微信": "WeChat",
  "主体": "Entity",
  "闪马科技个人工作室": "Shanma Tech Studio",
- "机甲工场": "MechFoundry",
+ "闪马工厂": "MechFoundry",
  "机器人聚合开源平台": "Robot Aggregation Open Platform",
  "保留所有权利": "All rights reserved",
  "蜀ICP备18013136号": "Shu ICP No.18013136",
@@ -200,7 +200,7 @@ window.I18N = {
  "用户与沟通": "Users",
  "全站页面索引（234+ 页面）": "Full page index (234+ pages)",
  "按模块浏览全站页面": "Browse all pages by module",
- "ROBOFORGE 机甲工场是机器人聚合开源平台，作为人类帮助 AI 通过机器人方式进入现实世界的桥梁：上游聚合厂商与个人的产品与宣发，中游以 AI 智造把商业需求拆解为可执行的机器人项目，下游提供模块、组件、配件、五金、3D 打印、外壳等资源与集成/测试服务。": "ROBOFORGE is a robot aggregation open platform — the bridge helping AI enter the physical world through robots: aggregating products and releases upstream, splitting business needs into executable robot projects with AI in the middle, and providing modules, components, accessories, hardware, 3D printing, enclosures plus integration and testing services downstream.",
+ "SUMFORGE 闪马工厂是机器人聚合开源平台，作为人类帮助 AI 通过机器人方式进入现实世界的桥梁：上游聚合厂商与个人的产品与宣发，中游以 AI 智造把商业需求拆解为可执行的机器人项目，下游提供模块、组件、配件、五金、3D 打印、外壳等资源与集成/测试服务。": "SUMFORGE is a robot aggregation open platform — the bridge helping AI enter the physical world through robots: aggregating products and releases upstream, splitting business needs into executable robot projects with AI in the middle, and providing modules, components, accessories, hardware, 3D printing, enclosures plus integration and testing services downstream.",
  "平台定位": "Positioning",
  "AI 拆分": "AI split",
  "项目生成": "Project",

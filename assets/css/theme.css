@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ROBOFORGE · theme.css
+   SUMFORGE · theme.css
    频道主题层：工业 Industrial 40% / 玩具 Toy 30% / 科技 Tech 20% / 社交 Social 10%
    用法：<body class="theme-toy"> 或给 .app 加 class
    ========================================================================== */
@@ -167,12 +167,27 @@
 }
 .quick a img{width:26px;height:26px}
 .quick a.hot::after{content:'HOT';position:absolute;right:4px;top:4px;font-size:8px;color:#fff;background:var(--red);padding:1px 4px;border-radius:4px}
-.quick a.toy{border-radius:22px;background:linear-gradient(160deg,#fff,#EEF4FF);color:#16294A;border-color:#DCE8FA}
+.quick a.toy{border-radius:16px;border-color:rgba(226,59,59,.5)}/* 注：原为白色渐变底，在深色背景下像"被选中"，已改为品牌红描边 */
+/* ---- 频道入口折叠：全部频道默认收起，点「更多频道」整体展开 ----
+   （早期版本为主频道常显，已改为统一折叠） */
+.quick a.q-more{display:none}
+.quick.is-open a.q-more{display:flex}
+.quick .q-toggle{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  cursor:pointer;background:rgba(46,124,246,.10);border:1px dashed rgba(46,124,246,.5);
+  color:var(--blue-l, #6FA8FF);
+}
+.quick .q-toggle .qt-arrow{font-size:14px;line-height:1;transition:transform .2s}
+.quick.is-open .q-toggle .qt-arrow{transform:rotate(180deg)}
 
-/* ---------- 板块横幅（广告/活动位，用生成的广告图） ---------- */
-.adslot{margin:12px;border-radius:var(--r-m);overflow:hidden;border:1px solid var(--line);position:relative}
-.adslot img{width:100%;height:auto}
-.adslot .ad-tag{position:absolute;right:8px;top:8px;font-size:10px;background:rgba(0,0,0,.5);color:#fff;padding:2px 6px;border-radius:4px}
+/* ---------- 板块横幅（广告/活动位，用生成的广告图） ----------
+   注：图片作为背景铺满并压暗，而不是按原始比例整张插入——
+   原写法 width:100%/height:auto 会让整张机器人大图顶出来，
+   与两侧内容错位。 */
+.adslot{margin:12px;border-radius:var(--r-m);overflow:hidden;border:1px solid var(--line);position:relative;height:106px;background:#0E1B2C}
+.adslot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.45}
+.adslot::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,20,32,.88) 0%,rgba(11,20,32,.40) 55%,rgba(11,20,32,.70) 100%)}
+.adslot .ad-tag{position:absolute;right:8px;top:8px;z-index:3;font-size:10px;background:rgba(0,0,0,.5);color:#fff;padding:2px 6px;border-radius:4px}
 
 /* ---------- 专题 / 话题 ---------- */
 .topic{position:relative;border-radius:var(--r-m);overflow:hidden;border:1px solid var(--line);min-height:96px}

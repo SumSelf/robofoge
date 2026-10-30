@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ROBOFORGE · components.css
+   SUMFORGE · components.css
    复合组件层：轮播 / 对比 / 规格表 / 审核流 / 节点分组 / 甘特 / 评论 / 折叠 /
    画廊 / 星级 / 分页 / 骨架屏 / 状态条 / 标签云 / 会话列表 / 工单流程
    ========================================================================== */
@@ -220,4 +220,16 @@
 @media(min-width:900px){
   .pager .pg-page{padding:0 6px}
   .pg-nav .pg-btn{width:30px;height:30px}
+}
+
+/* ---------------- 空状态 / 状态插画 ---------------- */
+.emptybox{padding:28px 16px;text-align:center;color:var(--txt-3,rgba(255,255,255,.62))}
+.emptybox .empty-illu{width:132px;height:132px;max-width:52vw;object-fit:contain;
+  display:block;margin:0 auto 14px;opacity:.92}
+.emptybox .empty-txt{font-size:15px;color:var(--txt-2,rgba(255,255,255,.82));
+  line-height:1.6;margin-bottom:4px}
+.emptybox .empty-sub{font-size:12.5px;color:var(--txt-3,rgba(255,255,255,.5));line-height:1.6}
+@media(max-width:640px){
+  .emptybox{padding:22px 12px}
+  .emptybox .empty-illu{width:104px;height:104px}
 }

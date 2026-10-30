@@ -1,4 +1,4 @@
-# ROBOFORGE · 接口与数据库对接说明
+# SUMFORGE · 接口与数据库对接说明
 
 > 站点：**234 页**（前台 204 + 后台 29 + 首页） · **193** 个接口 · **106** 张表
 
@@ -212,7 +212,7 @@ mysql -u root -p < docs/schema.sql
 ```
 
 脚本会：
-1. 建库 `roboforge`（utf8mb4 / utf8mb4_0900_ai_ci）
+1. 建库 `sumforge`（utf8mb4 / utf8mb4_0900_ai_ci）
 2. 建 **106 张表**（按外键依赖拓扑排序，可直接整文件执行）
 3. 写入初始化数据：8 个角色、25 个权限点、5 个流程阶段、4 条学习路径、
    8 个论坛板块、10 个产品分类、11 项系统设置
@@ -317,8 +317,8 @@ mysql -u root -p < docs/schema.sql
 开发联调时可直接：
 
 ```bash
-mysql -u root -p roboforge < docs/schema.sql
-mysql -u root -p roboforge < docs/mock_seed.sql
+mysql -u root -p sumforge < docs/schema.sql
+mysql -u root -p sumforge < docs/mock_seed.sql
 ```
 
 即可得到一个装满真实感数据的可运行环境。
@@ -344,7 +344,7 @@ mysql -u root -p roboforge < docs/mock_seed.sql
 ## 七、文件位置
 
 ```
-roboforge/
+sumforge/
 ├── docs/
 │   ├── README.md          本文件
 │   ├── API.md             193 个接口清单

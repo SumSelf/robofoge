@@ -1,15 +1,24 @@
-# ROBOFORGE 机甲工场 · 机器人聚合开源平台（前端静态站）
+# SUMFORGE 闪马工厂 · 机器人聚合开源平台（前端静态站）
+## 品牌名与读音
 
-> 人类帮助 AI 以机器人方式进入现实世界的桥梁 —— 从商业需求到定向机器人**设计 → 集成 → 测试 → 流水线生产**的全流程互联网化。
+**SUMFORGE** —— 中文名「闪马工厂」，域名 **sumstc.com**。
+
+- **sum**：取自「闪马」的品牌主体（微信 / 主体标识 sumstc）
+- **forge**：锻造、工场，对应中文「工厂」，也呼应平台
+  「从商业需求 → 设计 → 集成 → test → 流水线生产」的全流程制造属性
+- 读音 /'sʌmfɔːrdʒ/（萨姆-福吉）
+
+组合含义：**闪马工厂** —— 一个把机器人需求真正「锻造」出来的地方。
+
 
 ## 一、项目概览
 
 | 项 | 说明 |
 |---|---|
-| 站点名称 | ROBOFORGE 机甲工场 |
+| 站点名称 | SUMFORGE 闪马工厂 |
 | 交付形态 | 纯前端静态站（HTML + CSS + JS），可直接部署发布 |
-| 页面规模 | **234 页** = 首页 1 + 前台 204 + 后台 29 |
-| 图片资源 | **全部 WebP**（264 张，8.9 MB）+ 矢量图标 599 个（0.6 MB），图片目录合计 **9.7 MB** |
+| 页面规模 | **235 页** = 首页 1 + 前台 205（含 404） + 后台 29 |
+| 图片资源 | **全部 WebP**（约 400 张）+ 矢量图标 ~600 个，图片目录 **~14 MB**；含 10 品类实拍、产线实拍、12 频道主视觉、5 类状态插画、18 张板块封面 |
 | 数据模式 | `mock`（内置模拟数据，零后端可跑）/ `real`（真实 HTTP 接口）双版本，一键切换 |
 | 语言 | 中 / 英双语，全站 `data-i18n` + `data-zh/data-en` 双轨，实时切换（词典 2583 条） |
 | 适配 | PC 顶部折叠浮窗导航（≥900px）+ 移动底部 Tab（<900px），导航统一抽离为 `assets/css/nav.css` |
@@ -176,7 +185,7 @@
 ```bash
 # 1. 建库 + 灌入模拟数据（得到一个装满数据的可运行环境）
 mysql -u root -p < docs/schema.sql
-mysql -u root -p roboforge < docs/mock_seed.sql
+mysql -u root -p sumforge < docs/mock_seed.sql
 
 # 2. 前端指向后端网关
 window.RF_CONFIG = { apiBase: 'https://api.example.com/api/v1' };
@@ -197,7 +206,7 @@ RF.setMode('real');
 ## 二、目录结构
 
 ```
-roboforge/
+sumforge/
 ├── index.html                 # 首页（门户）
 ├── pages/                     # 前台 201 页
 ├── admin/                     # 后台 29 页
@@ -261,15 +270,15 @@ roboforge/
 
 ```bash
 # 方式一：本地预览
-cd roboforge && python3 -m http.server 8080
+cd sumforge && python3 -m http.server 8080
 
 # 方式二：Nginx（推荐）
 
 ```nginx
 server {
   listen 80;
-  server_name roboforge.com;
-  root /var/www/roboforge;
+  server_name sumstc.com;
+  root /var/www/sumforge;
   index index.html;
 
   # 只压文本类，WebP/PNG 已压缩过，再压是白耗 CPU
@@ -296,6 +305,12 @@ server {
   location / {
     try_files $uri $uri/ =404;
   }
+
+  # 自定义 404（页面在 pages/404.html，注意路径要带 /pages/ 前缀）
+  error_page 404 /pages/404.html;
+  location = /pages/404.html {
+    internal;
+  }
 }
 ```
 
@@ -305,17 +320,17 @@ server {
 # 方式三：Node.js 静态服务（仅应急，不建议生产）
 server {
     listen 80;
-    server_name roboforge.example.com;
-    root /var/www/roboforge;
+    server_name sumstc.com.com;
+    root /var/www/sumforge;
     index index.html;
     location / { try_files $uri $uri.html $uri/ /index.html; }
     location ~* \.(js|css|png|svg|jpg)$ { expires 30d; add_header Cache-Control "public"; }
 }
 
-# 方式三：对象存储 / CDN（腾讯云 COS、Vercel、Netlify 等）直接上传 roboforge/ 目录
+# 方式三：对象存储 / CDN（腾讯云 COS、Vercel、Netlify 等）直接上传 sumforge/ 目录
 ```
 
-注意：站点根目录为 `roboforge/`，必须整目录上传，保持 `assets/` 与 `pages/`、`admin/` 的相对层级。
+注意：站点根目录为 `sumforge/`，必须整目录上传，保持 `assets/` 与 `pages/`、`admin/` 的相对层级。
 
 ## 五、前后端对接
 
